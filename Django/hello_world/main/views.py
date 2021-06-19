@@ -27,8 +27,8 @@ from django.shortcuts import render
 class HelloWorldView(TemplateView):
     template_name = "main/hello.html"
 
-    def render_to_response(self, c, **response_kwargs):
-        context = {
+    def get_context_data(self, **kwargs):
+        return {
             "name": "Jatin Katyal",
             "languages": [
                 "python",
@@ -37,7 +37,6 @@ class HelloWorldView(TemplateView):
                 "rust"
             ]
         }
-        return super().render_to_response(context, **response_kwargs)
     
 
 class TablePageView(TemplateView):
