@@ -13,25 +13,18 @@ class Student(models.Model):
     name = models.CharField(max_length=256)
     date_of_birth = models.DateTimeField()
 
+class Pizza(models.Model):
+    name = models.CharField(max_length=256)
+    mrp = models.FloatField()
 
+    toppings = models.ManyToManyField("Topping")
 
-# DDL vs DML
-# SQL
+    def __str__(self):
+        return self.name
 
-# Remove roll number and add admission number
-# name dob admission_number(not null)(primary key)
+class Topping(models.Model):
+    name = models.CharField(max_length=256)
 
-# Migrations
-
-# -> Create Student Table
-
-# -> Adding class column
-
-# -> Add admission number
-
-# -> Remove roll number and make admission number primary
-
-# DjangoMigrationStatus
-# - Create Student Table
-# - Adding class column
+    def __str__(self):
+        return self.name
 
