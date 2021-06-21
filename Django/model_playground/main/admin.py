@@ -2,8 +2,9 @@ from django.contrib import admin
 from main.models import (
     Student,
     Pizza,
-    Topping
+    Topping,
+    Batch
 )
 
 # Register your models here.
-admin.site.register([Student, Pizza, Topping])
+admin.site.register([Student, Pizza, Topping, Batch])
