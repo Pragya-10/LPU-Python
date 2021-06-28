@@ -1,14 +1,14 @@
 from domain.models import Video
 from video.models import Video as StoreVideo
 
-
+# TDD
 class RecommendationService:
     def __init__(self, video_model):
         self._video_model = video_model
 
     def get_recommendations_for_user(self, user):
         # "-" in order_by represents descending order
-        store_videos = self._video_model.objects.filter(tag__name__in = user.interests).order_by("-created_at").limit(10)
+        store_videos = self._video_model.objects.filter(tags__name__in = user.interests).order_by("-created_at")[:10]
 
         return [ 
             Video(

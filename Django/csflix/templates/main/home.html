@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div>
+        <h2>Recommended Videos</h2>
+
+        <ul>
+            {% for video in videos %}
+                <li>{{ video.title }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endblock %}
