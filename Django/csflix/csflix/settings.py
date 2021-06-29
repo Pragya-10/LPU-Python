@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -33,6 +34,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'main',
     'video',
+    'django_minio_backend.apps.DjangoMinioBackendConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -129,3 +131,16 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT = BASE_DIR / "media"
+
+
+MINIO_ENDPOINT = 'localhost:9000'
+MINIO_ACCESS_KEY = 'admin'
+MINIO_SECRET_KEY = 'adminadmin'
+MINIO_URL_EXPIRY_HOURS = timedelta(days=1)
+MINIO_CONSISTENCY_CHECK_ON_START = True
+MINIO_PRIVATE_BUCKETS = [
+    'django-backend-dev-private',
+]
+MINIO_PUBLIC_BUCKETS = [
+    'django-backend-dev-public',
+]

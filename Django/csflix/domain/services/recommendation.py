@@ -11,13 +11,7 @@ class RecommendationService:
         store_videos = self._video_model.objects.filter(tags__name__in = user.interests).order_by("-created_at")[:10]
 
         return [ 
-            Video(
-                title=v.title,
-                genre="",
-                cast="",
-                tags=v.tags.all(),
-                trending=True
-            ) 
+            Video.from_store_model(video=v, tags=v.tags.all())
             for v in store_videos
         ]
 
