@@ -8,6 +8,7 @@ authors = ["Jatin Katyal <jatin.katyal13@gmail.com>"]
 python = "^3.9"
 Django = "^3.2.4"
 django-minio-backend = "^2.7.1"
+python-dotenv = "^0.18.0"
 
 [tool.poetry.dev-dependencies]
 
