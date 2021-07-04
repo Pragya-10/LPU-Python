@@ -11,3 +11,5 @@ RUN poetry config virtualenvs.create false
 RUN poetry install --no-root --no-interaction --no-ansi
 
 COPY . .
+
+CMD gunicorn csflix.wsgi --bind 0.0.0.0:$PORT
